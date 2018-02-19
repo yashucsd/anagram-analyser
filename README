@@ -1,0 +1,52 @@
+/*
+ * Filename: README
+ * Author: Yash Nevatia
+ * Userid: cs30xpf
+ * Description:	This program is meant to find the anagrams of a given word on 
+ input and some statistics about the anagrams of that word.
+ * Date: 28 February 2017
+ * Sources of Help
+ */
+
+Compilation: You must be in the pa3 directory and run 'make'. You will need all
+of the following files: charCompare.s, findAnagrams.c, getTableIndex.s, hash.s,
+initAnagram.c, isInBounds.s, loadDict.c, main.c, pa3.h, pa3Globals.c,
+pa3Strings.h, printStats.c, upperCaseSortString.c, usage.c.
+
+How: run ./pa3 with the index (i) flag with an index to find the
+stats of a given index of a table, the file (f) flag with a filename to load
+as a dictionary, the size (s) tag with a size to set for the table, or with no
+flags to use the default values.
+
+Output: outputs the anagrams of a word when a word is entered, prints the stats
+of an index when an index is passed in
+
+[cs30xyz@ieng9]:pa3$ ./pa3
+Enter a word to search for anagrams [^D to exit]: melon
+Anagram(s) are: lemon Menlo monel
+
+Erroneous output: (goes to stderr)
+
+[cs30xyz@ieng9]:pa3$ ./pa3 -s 9 -i 10	
+	index must be within the range of [0 - 8].
+Usage: ./pa3 [-f dictFile] [-s tableSize] [-i index] [-h]
+Try './pa3 -h' for more information.
+
+Testing: Some logic-based assembly and C files (charCompare, getTableIndex,
+upperCaseSortString, hash) were tested independently to make sure that their
+outputs were accurate. These are some of the inputs used to make sure that the
+outputs matched with expectations, testing the program.
+
+Normal: ./pa3, ./pa3 -f file2
+For Errors: ./pa3 -i x, ./pa3 z
+
+Notes:
+At this point of writing this note, my program is incomplete and doesn't run
+properly. I'm aiming for some partial credit.
+
+Questions:
+1. Maintain integrity when stressed, pressured, or tired by turing to tools and
+resources (like tutors and man pages) to get help from when working on
+assignment.
+2. The size 1000 takes longer most likely due to loadDict() as it has to go
+through the dictionary and place all the anagrams in various locations.
